@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Beastly&display=swap");
+
+@import "tailwindcss";
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  font-family: "Rubik Beastly", system-ui;
+}
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
