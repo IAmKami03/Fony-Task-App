@@ -7,6 +7,7 @@ import AuthLayout from "./layout/AuthLayout";
 import ForgotPassword from "./pages/ForgotPassword";
 import DashboardHome from "./pages/dashboard/DashboardHome";
 import Profile from "./pages/Profile";
+import AuthCallback from "./pages/AuthCallback";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Route>
           <Route path="/forgot" element={<ForgotPassword />} />
-
+          <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

@@ -1,14 +1,22 @@
-import React, { useState } from "react";
 import logoo from "../../assets/logo.png";
 import profile from "../../assets/profile.png";
 import prof from "../../assets/image.png";
 import close from "../../assets/Close Circle.svg";
 import logout from "../../assets/Logout 2.png";
 import user from "../../assets/user.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const { user: currentUser, logout: logoutUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -18,15 +26,19 @@ const Nav = () => {
         </Link>
 
         <div className="flex items-center gap-2.5">
-          <button className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#77C2FF] py-2.5 px-[19px] rounded-[22px] border border-[#000000] ">
+          <Link
+            to="/dashboard"
+            className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#77C2FF] py-2.5 px-[19px] rounded-[22px] border border-[#000000]"
+          >
             Dashboard
-          </button>
-          {/* <button className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#F1F1F180] py-2.5 px-[19px] rounded-[22px]">
-            Ongoing
-          </button> */}
-          <button className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#F1F1F180] py-2.5 px-[19px] rounded-[22px]">
+          </Link>
+
+          <Link
+            to=""
+            className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#F1F1F180] py-2.5 px-[19px] rounded-[22px]"
+          >
             Completed
-          </button>
+          </Link>
         </div>
 
         <div>
@@ -38,38 +50,45 @@ const Nav = () => {
           />
 
           {open && (
-            <div className="absolute mt-3 right-3  w-[326px] bg-[#FFFFFF] rounded-[20px] shadow-md border border-[#E4E4E4] l p-[6px] space-y-[6px] z-50">
+            <div className="absolute mt-3 right-3 w-[326px] bg-[#FFFFFF] rounded-[20px] shadow-md border border-[#E4E4E4] p-[6px] space-y-[6px] z-50">
               <div className="flex justify-between items-start border border-[#E4E4E4] rounded-[60px] p-2.5">
                 <div className="flex gap-2.5">
                   <img src={prof} alt="" className="w-[38px] h-[38px]" />
-                  <div className="space-y-[2px] ">
+                  <div className="space-y-[2px]">
                     <p className="font-normal text-[16px] text-[#0C0C0C] leading-[100%] tracking-tight">
-                      Farid Ahmed
+                      {currentUser?.name || "User"}
                     </p>
                     <p className="text-[12px] text-[#535353] leading-[100%] tracking-tight">
-                      alofariid@gmail.com
+                      {currentUser?.email || ""}
                     </p>
                   </div>
                 </div>
                 <img
                   src={close}
                   alt=""
-                  className=""
+                  className="cursor-pointer"
                   onClick={() => setOpen(false)}
                 />
               </div>
 
               <div>
-                <div className="py-[5px] px-2.5 flex gap-[6px] items-center rounded-[60px]">
+                <Link
+                  to="/profile"
+                  onClick={() => setOpen(false)}
+                  className="py-[5px] px-2.5 flex gap-[6px] items-center rounded-[60px] hover:bg-[#F4F4F4]"
+                >
                   <img src={user} alt="" />
-                  <p className="flex items-center gap-2 text-[14px] text-[#0C0C0C] text-[16px] leading-[126%] tracking-tight p-2 rounded-lg">
+                  <p className="text-[14px] text-[#0C0C0C] leading-[126%] tracking-tight p-2 rounded-lg">
                     View Profile
                   </p>
-                </div>
+                </Link>
 
-                <div className="py-[5px] px-2.5 flex gap-[6px] items-center rounded-[60px]">
+                <div
+                  onClick={handleLogout}
+                  className="py-[5px] px-2.5 flex gap-[6px] items-center rounded-[60px] cursor-pointer hover:bg-[#F4F4F4]"
+                >
                   <img src={logout} alt="" />
-                  <p className="flex items-center gap-2 text-[14px] text-[#0C0C0C] text-[16px] leading-[126%] tracking-tight  p-2 rounded-lg">
+                  <p className="text-[14px] text-[#FF3B3B] leading-[126%] tracking-tight p-2 rounded-lg">
                     Logout
                   </p>
                 </div>
