@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import close from "../assets/Close Circle.svg";
-import { updateTask } from "../api/taskServices";
+import { updateTask } from "../api/taskService";
 
 const UpdateTaskModal = ({ isOpen, onClose, onSuccess, task }) => {
   const [form, setForm] = useState({

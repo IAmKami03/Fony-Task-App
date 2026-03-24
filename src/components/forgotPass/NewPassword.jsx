@@ -41,21 +41,21 @@ const NewPassword = ({ setShowScreen }) => {
   };
 
   return (
-    <div className="flex gap-5">
-      <div className="pt-[40px] flex flex-col gap-[35px] w-[484px]">
+    <div className="flex flex-col md:flex-row gap-5 min-h-screen md:min-h-0">
+      <div className="pt-[40px] flex flex-col gap-[35px] w-full md:w-[484px]">
         <div
           onClick={() => setShowScreen("otp")}
           className="flex items-center gap-2 cursor-pointer"
         >
           <img src={back} alt="" />
-          <p>Back</p>
+          <p className="text-[14px] md:text-[16px]">Back</p>
         </div>
 
         <div className="space-y-[7px]">
-          <h4 className="text-[30px] tracking-tight font-bold">
+          <h4 className="text-[24px] md:text-[30px] tracking-tight font-bold">
             Create your password
           </h4>
-          <p className="text-[16px] tracking-tighter text-[#666666] font-medium">
+          <p className="text-[14px] md:text-[16px] tracking-tighter text-[#666666] font-medium">
             Create a new password by filling the form below.
           </p>
         </div>
@@ -64,7 +64,7 @@ const NewPassword = ({ setShowScreen }) => {
           <div className="flex flex-col gap-[6px]">
             <label
               htmlFor="newPassword"
-              className="text-[#0C0C0C] font-medium text-[16px]"
+              className="text-[#0C0C0C] font-medium text-[14px] md:text-[16px]"
             >
               Create Password <span className="text-red-500">*</span>
             </label>
@@ -77,7 +77,7 @@ const NewPassword = ({ setShowScreen }) => {
                 required
                 value={form.newPassword}
                 onChange={handleChange}
-                className="w-[412px] text-[14px] outline-none font-medium text-[#666666]"
+                className="flex-1 text-[14px] outline-none font-medium text-[#666666]"
               />
               <img
                 src={eye}
@@ -91,7 +91,7 @@ const NewPassword = ({ setShowScreen }) => {
           <div className="flex flex-col gap-[6px]">
             <label
               htmlFor="confirmPassword"
-              className="text-[#0C0C0C] font-medium text-[16px]"
+              className="text-[#0C0C0C] font-medium text-[14px] md:text-[16px]"
             >
               Confirm Password <span className="text-red-500">*</span>
             </label>
@@ -104,7 +104,7 @@ const NewPassword = ({ setShowScreen }) => {
                 required
                 value={form.confirmPassword}
                 onChange={handleChange}
-                className="w-[412px] text-[14px] outline-none font-medium text-[#666666]"
+                className="flex-1 text-[14px] outline-none font-medium text-[#666666]"
               />
               <img
                 src={eye}
@@ -122,13 +122,17 @@ const NewPassword = ({ setShowScreen }) => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#77C2FF] text-[16px] font-bold rounded-[48px] block w-full py-3 px-[19px] cursor-pointer border-2 border-b-4 border-[#000000] disabled:opacity-60"
+            className="bg-[#77C2FF] text-[14px] md:text-[16px] font-bold rounded-[48px] block w-full py-3 px-[19px] cursor-pointer border-2 border-b-4 border-[#000000] disabled:opacity-60"
           >
             {loading ? "Saving..." : "Confirm"}
           </button>
         </form>
       </div>
-      <img src={imagee} alt="" className="flex-1 w-[747px] h-[724px]" />
+      <img
+        src={imagee}
+        alt=""
+        className="hidden md:block flex-1 w-[747px] h-[724px] object-cover"
+      />
     </div>
   );
 };

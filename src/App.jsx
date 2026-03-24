@@ -8,6 +8,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import DashboardHome from "./pages/dashboard/DashboardHome";
 import Profile from "./pages/Profile";
 import AuthCallback from "./pages/AuthCallback";
+import NotFound from "./pages/NotFound";
+import CompletedPage from "./pages/CompletedPage";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/completed" element={<CompletedPage />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
