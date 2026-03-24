@@ -14,7 +14,13 @@ const AuthCallback = () => {
       // Decode the JWT payload to get user info
       try {
         const payload = JSON.parse(atob(token.split(".")[1]));
-        const user = { id: payload.sub, role: payload.role };
+        const user = {
+          id: payload.sub,
+          role: payload.role,
+          name: payload.name,
+          email: payload.email,
+          phoneNumber: payload.phoneNumber,
+        };
         saveUser(user, token);
         navigate("/dashboard");
       } catch {
