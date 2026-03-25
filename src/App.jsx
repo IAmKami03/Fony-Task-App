@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import AuthCallback from "./pages/AuthCallback";
 import NotFound from "./pages/NotFound";
 import CompletedPage from "./pages/CompletedPage";
+import AdminDashBoard from "./pages/AdminDashboard";
+import AdminRoute from "./pages/AdminRoute";
 
 function App() {
   return (
@@ -22,11 +24,22 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
+          
           <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/completed" element={<CompletedPage />} />
+
+          {/* Admin — only accessible if role === "admin" */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashBoard />
+              </AdminRoute>
+            }
+          />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

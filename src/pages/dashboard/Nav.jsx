@@ -41,6 +41,15 @@ const Nav = () => {
           >
             Completed
           </Link>
+
+          {currentUser?.role === "admin" && (
+            <Link
+              to="/admin"
+              className="font-medium text-[16px] leading-[20px] tracking-tighter bg-[#0C0C0C] text-white py-2.5 px-[19px] rounded-[22px] border border-[#000000]"
+            >
+              Admin Panel
+            </Link>
+          )}
         </div>
 
         <div className="flex items-center gap-3">
@@ -85,6 +94,15 @@ const Nav = () => {
             >
               Completed
             </Link>
+            {currentUser?.role === "admin" && (
+              <Link
+                to="/admin"
+                onClick={() => setMenuOpen(false)}
+                className="font-medium text-[16px] bg-[#0C0C0C] text-white py-2.5 px-[19px] rounded-[22px] text-left"
+              >
+                Admin Panel
+              </Link>
+            )}
           </div>
         )}
 
