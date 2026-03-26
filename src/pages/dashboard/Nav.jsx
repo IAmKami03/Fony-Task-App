@@ -71,7 +71,7 @@ const Nav = () => {
 
           {/* Profile icon */}
           <img
-            src={profile}
+            src={currentUser?.avatar || profile}
             alt="Profile"
             className="cursor-pointer"
             onClick={() => setOpen(!open)}
@@ -111,7 +111,11 @@ const Nav = () => {
           <div className="absolute mt-3 right-3 top-full w-[300px] sm:w-[326px] bg-[#FFFFFF] rounded-[20px] shadow-md border border-[#E4E4E4] p-[6px] space-y-[6px] z-50">
             <div className="flex justify-between items-start border border-[#E4E4E4] rounded-[60px] p-2.5">
               <div className="flex gap-2.5">
-                <img src={prof} alt="" className="w-[38px] h-[38px]" />
+                <img
+                  src={currentUser?.avatar || prof}
+                  alt=""
+                  className="w-[38px] h-[38px] rounded-full object-cover"
+                />
                 <div className="space-y-[2px]">
                   <p className="font-normal text-[16px] text-[#0C0C0C] leading-[100%] tracking-tight">
                     {currentUser?.name || "User"}

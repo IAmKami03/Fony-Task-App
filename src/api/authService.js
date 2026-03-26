@@ -6,3 +6,5 @@ export const sendOTP = () => api.post("/api/auth/send-otp");
 export const verifyOTP = (otp) => api.post("/api/auth/verify-otp", { otp });
 export const resetPassword = (newPassword) =>
   api.post("/api/auth/reset-password", { newPassword });
+export const updateProfile = (formData) =>
+  api.patch("/api/auth/profile", formData);
