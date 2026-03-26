@@ -107,7 +107,7 @@ const AdminDashBoard = () => {
 
         <div className="relative">
           <img
-            src={prof}
+            src={currentUser?.avatar || prof}
             alt="Profile"
             className="cursor-pointer w-8 h-8 md:w-auto md:h-auto rounded-full"
             onClick={() => setProfileOpen(!profileOpen)}
@@ -118,7 +118,7 @@ const AdminDashBoard = () => {
               <div className="flex justify-between items-start border border-[#E4E4E4] rounded-[60px] p-2.5">
                 <div className="flex gap-2.5">
                   <img
-                    src={prof}
+                    src={currentUser?.avatar || prof}
                     alt=""
                     className="w-[38px] h-[38px] rounded-full"
                   />
