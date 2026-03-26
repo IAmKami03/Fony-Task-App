@@ -73,7 +73,7 @@ const Nav = () => {
           <img
             src={currentUser?.avatar || profile}
             alt="Profile"
-            className="cursor-pointer"
+            className="cursor-pointer w-10 h-10 rounded-full"
             onClick={() => setOpen(!open)}
           />
         </div>
