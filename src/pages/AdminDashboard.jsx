@@ -109,7 +109,7 @@ const AdminDashBoard = () => {
           <img
             src={currentUser?.avatar || prof}
             alt="Profile"
-            className="cursor-pointer w-8 h-8 md:w-auto md:h-auto rounded-full"
+            className="cursor-pointer w-8 h-8 md:w-10 md:h-10 rounded-full"
             onClick={() => setProfileOpen(!profileOpen)}
           />
 
