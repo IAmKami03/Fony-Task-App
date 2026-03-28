@@ -80,7 +80,7 @@ const Navbar = () => {
           <hr className="border-[#D9D9D9]" />
           <Link
             to="/login"
-            className="font-medium text-[16px] text-center py-2 px-6 border border-[#000000] rounded-[48px]"
+            className="font-bold text-[16px] text-center py-2 px-6 border border-[#000000] border-b-4 border-[#000000] rounded-[48px]"
             onClick={() => setMenuOpen(false)}
           >
             Login

@@ -43,7 +43,7 @@ const Register = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleRegister = () => {
     window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google`;
   };
 
@@ -183,7 +183,7 @@ const Register = () => {
             </p>
           </div>
           <div
-            onClick={handleGoogleLogin}
+            onClick={handleGoogleRegister}
             className="w-full mt-3 py-3 px-[19px] flex gap-2.5 border border-[#D9D9D9] rounded-[48px] justify-center items-center cursor-pointer"
           >
             <img src={google} alt="" />
