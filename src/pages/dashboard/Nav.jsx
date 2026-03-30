@@ -71,7 +71,7 @@ const Nav = () => {
 
           {/* Profile icon */}
           <img
-            src={currentUser?.avatar || profile}
+            src={currentUser?.avatar || prof}
             alt="Profile"
             className="cursor-pointer w-10 h-10 rounded-full"
             onClick={() => setOpen(!open)}

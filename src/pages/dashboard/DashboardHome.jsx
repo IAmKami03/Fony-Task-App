@@ -86,7 +86,7 @@ const DashboardHome = () => {
         <div className="flex flex-col gap-5">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <h4 className="font-bold text-[22px] md:text-[30px] tracking-tighter">
-              Welcome back! {user?.name}
+              Welcome! {user?.name}
             </h4>
             <button
               onClick={() => setModal("create")}
@@ -263,6 +263,28 @@ const DashboardHome = () => {
                       {task.status}
                     </span>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex-1 bg-[#E4E9ED] rounded-full h-1.5">
+                      <div
+                        className={`h-1.5 rounded-full ${task.status === "completed" ? "bg-green-500" : "bg-[#77C2FF]"}`}
+                        style={{ width: `${task.progress}%` }}
+                      />
+                    </div>
+                    <span className="text-[11px] font-medium text-[#666666]">
+                      {task.progress}%
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex-1 bg-[#E4E9ED] rounded-full h-1.5">
+                      <div
+                        className={`h-1.5 rounded-full ${task.status === "completed" ? "bg-green-500" : "bg-[#77C2FF]"}`}
+                        style={{ width: `${task.progress}%` }}
+                      />
+                    </div>
+                    <span className="text-[11px] font-medium text-[#666666]">
+                      {task.progress}%
+                    </span>
+                  </div>
                   <div className="flex gap-2 mt-1">
                     <img
                       src={editPen}
@@ -300,6 +322,9 @@ const DashboardHome = () => {
               </p>
               <p className="text-[20px] font-semibold tracking-tighter w-[237px] py-2.5 px-[30px]">
                 Status
+              </p>
+              <p className="text-[20px] font-semibold tracking-tighter w-[200px] py-2.5 px-[30px]">
+                Progress
               </p>
               <p className="text-[20px] font-semibold tracking-tighter w-[236px] py-2.5 px-[30px]">
                 More action
@@ -344,6 +369,17 @@ const DashboardHome = () => {
                   >
                     {task.status}
                   </p>
+                  <div className="w-[200px] py-3 px-[30px] flex items-center gap-2">
+                    <div className="flex-1 bg-[#E4E9ED] rounded-full h-2">
+                      <div
+                        className={`h-2 rounded-full ${task.status === "completed" ? "bg-green-500" : "bg-[#77C2FF]"}`}
+                        style={{ width: `${task.progress}%` }}
+                      />
+                    </div>
+                    <span className="text-[12px] font-medium text-[#666666] whitespace-nowrap">
+                      {task.progress}%
+                    </span>
+                  </div>
                   <div className="flex gap-2 w-[236px] py-3 px-[30px]">
                     <img
                       src={editPen}

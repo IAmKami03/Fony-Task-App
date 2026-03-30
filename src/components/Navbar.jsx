@@ -1,13 +1,18 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useAuth();
+
+  // If logged in, logo goes to dashboard instead of landing page
+  const logoDestination = user ? "/dashboard" : "/";
 
   return (
     <div className="px-6 sm:px-10 md:px-[100px] flex justify-between py-5 sm:py-[30px] items-center border-b border-[#D9D9D9] relative">
-      <Link to="/">
+      <Link to={logoDestination}>
         <img src={logo} alt="Fony" className="h-8 sm:h-auto" />
       </Link>
 

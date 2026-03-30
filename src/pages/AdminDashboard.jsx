@@ -14,6 +14,7 @@ import AdminSummarycard from "../components/adminComponents/AdminSummarycard";
 import AdminUserRow from "../components/adminComponents/AdminUserRow";
 import { getDashboard, getUsers } from "../api/adminService";
 import { useAuth } from "../context/AuthContext";
+import Nav from "./dashboard/Nav";
 
 const PAGE_SIZE = 10;
 
@@ -88,7 +89,8 @@ const AdminDashBoard = () => {
   return (
     <div className="max-w-[1440px] mx-auto">
       {/* Admin Nav */}
-      <div className="flex justify-between items-center border-b border-[#D9D9D9] shadow-md py-5 md:py-[30px] px-6 sm:px-10 md:px-[100px] relative">
+      <Nav />
+      {/* <div className="flex justify-between items-center border-b border-[#D9D9D9] shadow-md py-5 md:py-[30px] px-6 sm:px-10 md:px-[100px] relative">
         <Link to="/">
           <img src={logoo} alt="Fony" className="h-8 md:h-auto" />
         </Link>
@@ -150,7 +152,7 @@ const AdminDashBoard = () => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       {/* Main content */}
       <div className="px-6 sm:px-10 md:px-[100px] flex flex-col gap-[50px] py-8">
@@ -183,7 +185,7 @@ const AdminDashBoard = () => {
                 onClick={handleSortToggle}
                 className="border flex justify-center items-center gap-2 px-4 h-[44px] rounded-[22px] hover:bg-[#F6FBFF] transition"
               >
-                <p className="font-semibold text-[14px] md:text-[16px]">
+                <p className="font-semibold text-[14px] md:text-[16px] ">
                   {sortOrder === "newest"
                     ? "Newest to Oldest"
                     : "Oldest to Newest"}
@@ -239,11 +241,23 @@ const AdminDashBoard = () => {
                     className="border border-[#D9D9D9] rounded-[16px] p-4 flex flex-col gap-2"
                   >
                     <div className="flex justify-between items-center">
-                      <div>
-                        <p className="font-semibold text-[15px]">{user.name}</p>
-                        <p className="text-[12px] text-[#666666]">
-                          {user.email}
-                        </p>
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={user.avatar || prof}
+                          alt={user.name}
+                          className="w-8 h-8 rounded-full object-cover border border-[#D9D9D9] flex-shrink-0"
+                          onError={(e) => {
+                            e.target.src = prof;
+                          }}
+                        />
+                        <div>
+                          <p className="font-semibold text-[15px]">
+                            {user.name}
+                          </p>
+                          <p className="text-[12px] text-[#666666]">
+                            {user.email}
+                          </p>
+                        </div>
                       </div>
                       <span
                         className={`text-[12px] font-medium px-3 py-1 rounded-full capitalize ${

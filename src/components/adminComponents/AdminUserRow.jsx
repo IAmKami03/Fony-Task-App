@@ -32,11 +32,14 @@ const AdminUserRow = ({ users, loading }) => {
           className="flex h-[70px] items-center border-b last:border-b-0 hover:bg-[#F6FBFF]"
         >
           {/* User */}
-          <div className="w-[453px] items-center flex gap-[10px] pl-[30px]">
+          <div className="w-113.25 items-center flex gap-2.5 pl-[30px]">
             <img
-              src={pic}
-              alt=""
-              className="w-[24px] h-[24px] rounded-full flex-shrink-0"
+              src={user.avatar || pic}
+              alt={user.name}
+              className="w-8 h-8 rounded-full object-cover shrink-0 border border-[#D9D9D9]"
+              onError={(e) => {
+                e.target.src = pic;
+              }}
             />
             <div className="overflow-hidden">
               <p className="text-[16px] font-semibold tracking-tight leading-[20px] truncate">
